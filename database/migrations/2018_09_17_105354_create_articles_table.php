@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->boolean('published');
             $table->text('content');
             $table->text('image');
-            $table->json('url')->nullable();
+            $table->text('url')->nullable();
             $table->timestamps();
         });
     }

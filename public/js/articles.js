@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var articlePage = 1;
     let summernote = $('#summernote');
     summernote.summernote({
         height: 350,
@@ -28,7 +29,7 @@ $(document).ready(function () {
 
     $('#save').click(function () {
         let title = $('#titleInput').val();
-        let text = $('#summernote').summernote('code');
+        let text = $($('#summernote').summernote('code')).text();
         let url = $('#urlInput1').val();
         let file = document.getElementById("imageInput").files[0];
         file = getBase64(file, function (file) {
@@ -43,9 +44,39 @@ $(document).ready(function () {
                 data: JSON.stringify({title: title, text: text, url: url, image: file}),
             }).done(function (data) {
                 console.log(data);
+                location.reload();
             });
         });
 
     });
+
+    function getArticles(page) {
+        console.log(page);
+        $.ajax({
+            type: 'GET',
+            url: '/api/articles/'+page,
+        }).done(function (data) {
+            if(data.status){
+                console.log(data.articles);
+                drawArticles(data.articles)
+            }
+        });
+    }
+
+    function drawArticles(articles){
+        for(let i = 0; i < articles.length; i++){
+            let elem = $('#article').clone();
+            elem.find('#text').text(articles[i].content);
+            elem.find('#title').text(articles[i].title);
+            elem.find('#date').text(articles[i].created_at);
+            elem.find('#article-url').text(articles[i].url);
+            elem.find('#article-url').attr('href', articles[i].url);
+            elem.find('#image').attr('src', '/images/'+articles[i].image);
+            elem.appendTo('#force-overflow');
+            elem.css('display', 'block');
+        }
+    }
+
+    getArticles(articlePage);
 
 });

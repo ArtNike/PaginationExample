@@ -84,18 +84,22 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="scrollbar scrollbar-primary">
-                        <div class="force-overflow">
-                            <div class="panel panel-default" id="article" style="padding: 20px">
+                        <div class="force-overflow" id="force-overflow">
+
+                            <div class="panel panel-default" id="article" style="padding: 20px; display: none">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <p class="text-left text-bold">09.09.2018</p>
+                                        <p id="date" class="text-left text-bold">09.09.2018</p>
                                     </div>
                                     <div class="row">
-                                        <img src="http://www.midlandersalumni.com/images/_global/default-blog-post.jpg"
+                                        <img id="image" src="http://www.midlandersalumni.com/images/_global/default-blog-post.jpg"
                                              class="img-responsive center-block" alt="Responsive image">
                                     </div>
                                     <div class="row" style="padding-top: 25px">
-                                        <p>
+                                        <p style="text-align: center"><b id="title">Lorem Ipsum</b></p>
+                                    </div>
+                                    <div class="row" style="padding-top: 10px">
+                                        <p id="text">
                                             <b>&nbsp; &nbsp; Lorem Ipsum </b>- это текст-"рыба", часто используемый в
                                             печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов
                                             на латинице с начала XVI века. В то время некий безымянный печатник создал
@@ -106,6 +110,9 @@
                                             Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
                                             вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
                                         </p>
+                                    </div>
+                                    <div class="row">
+                                        <a id="article-url" href="https://vk.com" target="_blank">vk.com</a>
                                     </div>
                                 </div>
                             </div>

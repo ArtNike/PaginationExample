@@ -37,6 +37,7 @@ class ArticleController extends Controller
 
         $text = $request->text;
         $title = $request->title;
+        $url = $request->url;
 
         //saving article
         $article = new Article;
