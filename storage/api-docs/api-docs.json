@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Anthill Connect API",
+        "description": "APi provides gamification tools",
+        "termsOfService": "",
+        "contact": {
+            "url": "gdforge.ru"
+        },
+        "license": {
+            "name": "Private License",
+            "url": "URL to the license"
+        },
+        "version": "0.0.1"
+    },
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/articles/{page_id}": {
+            "get": {
+                "tags": [
+                    "articles"
+                ],
+                "summary": "Get some articles",
+                "operationId": "getArticlesPage",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "page_id",
+                        "in": "path",
+                        "description": "Number of articles page",
+                        "required": true,
+                        "type": "number",
+                        "default": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/timestamp": {
+            "get": {
+                "tags": [
+                    "time"
+                ],
+                "summary": "Get time of project starting in timestamp(UTC)",
+                "operationId": "getProjectStartsTime",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "externalDocs": {
+        "description": "AnthillConnect project docs",
+        "url": "google.com"
+    }
+}
